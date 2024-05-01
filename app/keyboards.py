@@ -5,6 +5,7 @@ from aiogram.types import (ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMa
 from database.requests import get_lessons
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
+
 start_course = settings = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Начать обучение', callback_data='cmd_start_course')],
 ])
@@ -12,6 +13,7 @@ start_course = settings = InlineKeyboardMarkup(inline_keyboard=[
 
 main = ReplyKeyboardMarkup(keyboard=[
     [KeyboardButton(text='Программа'), KeyboardButton(text='Пройти урок')],
+    [KeyboardButton(text='Пройти тест')], [KeyboardButton(text='Подробнее о курсе')]
 ], resize_keyboard=True,
     input_field_placeholder='Выберите пукт меню'
 )
