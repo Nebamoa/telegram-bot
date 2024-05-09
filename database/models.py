@@ -21,7 +21,9 @@ class User(Base):
     patronymic: Mapped[str] = mapped_column(String(40))
     lesson_number: Mapped[int] = mapped_column()
     topic_number: Mapped[int] = mapped_column()
-    lvl: Mapped[int] = mapped_column()
+    lvl: Mapped[str] = mapped_column()
+    date: Mapped[str] = mapped_column()
+    last_use_course: Mapped[str] = mapped_column()
 
 
 class Topic(Base):
@@ -29,6 +31,9 @@ class Topic(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     topic_name: Mapped[str] = mapped_column()
     topic_number: Mapped[int] = mapped_column()
+
+
+
 
 
 class Test(Base):
