@@ -61,8 +61,6 @@ async def check_and_notify():
                     await bot.send_message(chat_id=user.tg_id, text=f'{random.choice(list_remind_send)}')
                 elif difference.days == 10:
                     await bot.send_message(chat_id=user.tg_id, text=f'{random.choice(list_remind_send)}')
-
-        print('итерация')
         # Засыпаем на минуту
         await asyncio.sleep(3600)
 
