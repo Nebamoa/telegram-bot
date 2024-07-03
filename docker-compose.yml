@@ -2,7 +2,9 @@ version: '3.7'
 services:
   bot:
     build: .
-    command: sh -c "python run.py"
-    env_file:
-      - ./.env
+    command: python run.py
+    volumes:
+      - .:/app
     restart: always
+
+

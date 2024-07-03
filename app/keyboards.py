@@ -14,7 +14,7 @@ start_course = InlineKeyboardMarkup(inline_keyboard=[
 main = ReplyKeyboardMarkup(keyboard=[
     [KeyboardButton(text='Программа', callback_data='get_course'), KeyboardButton(text='Пройти урок', callback_data='get_lesson')],
     [KeyboardButton(text='Пройти тест'), KeyboardButton(text='Подробнее о курсе')],
-    [KeyboardButton(text='Получить сертификат')]
+    [KeyboardButton(text='Моя статистика'), KeyboardButton(text='Получить сертификат')]
 ], resize_keyboard=True,
     input_field_placeholder='Выберите пукт меню'
 )
@@ -43,6 +43,15 @@ async def all_topics():
     topics = await rq.get_all_topic()
     for topic in topics:
         keyboard.add(KeyboardButton(text=f'{topics.index(topic)+1}. {topic.topic_name}'))
+    return keyboard.adjust(2).as_markup()
+
+
+async def all_tests():
+    keyboard = ReplyKeyboardBuilder()
+    topics = await rq.get_all_topic()
+    for topic in topics:
+        keyboard.add(KeyboardButton(text=f'{topics.index(topic)+1}. {topic.topic_name}'))
+    keyboard.add(KeyboardButton(text=f'6. Итоговый тест'))
     return keyboard.adjust(2).as_markup()
 
 
